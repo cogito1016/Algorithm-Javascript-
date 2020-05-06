@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    //[1, 1, 9, 1, 1, 1]
+    //[2,1,3,2]
+    //[3,2,1,5]
+    let priorities =[2,1,3,2];
+    let object =2;
+    solution(priorities, object);
+
+    function solution(priorities, object) {
+        let answer = 0;
+
+        let deque = priorities;
+        let goal = object;
+
+        while(deque.length!=0){
+            let thisNum = deque.shift();
+            let possible = true;
+
+            for(var i =0;i<deque.length;i++){
+                if(thisNum<deque[i]){
+                    possible=false;
+                    break;
+                }//if end
+            }//for end
+
+            if(possible){
+                answer++;
+                if(goal==0){
+                    break;
+                }//if end 목표면
+            }//if end 빠질 수 있으면
+            else{
+                deque.push(thisNum);
+                if(goal==0){
+                    goal=deque.length;
+                }//if end 목표면
+            }//else end 빠질 수 없으면
+            goal--;
+        }//while end
+
+        console.log(answer);
+        return answer;
+    }
+</script>
+</html>
