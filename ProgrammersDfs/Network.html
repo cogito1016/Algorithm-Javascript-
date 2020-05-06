@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    var n =4;
+    var map =[[1,0,0,1],[0,1,1,1],[0,1,1,0],[1,1,0,1]]	;
+    let visit = new Array(n);
+
+    for(let i=0;i<n;i++)
+        visit[i]=false;
+
+    let stack = [];
+    let result=0;
+    for(let i =0;i<n;i++){
+        if(visit[i])
+            continue;
+        stack.push(i);
+        visit[i]=true;
+        result++;
+        while(stack.length!=0){
+            let thisNum = stack.pop();
+            for(let j=0;j<n;j++){
+                if(map[thisNum][j]==0)
+                    continue;
+                if(visit[j])
+                    continue;
+                visit[j]=true;
+                stack.push(j);
+            }//for end
+        }//while end
+    }//for end
+
+    console.log(result);
+
+</script>
+</html>
