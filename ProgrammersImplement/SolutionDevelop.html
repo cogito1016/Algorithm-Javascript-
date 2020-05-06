@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    //[5, 5, 5], [21, 25, 20]
+    var progresses =[5, 5, 5];
+    var speeds = [21, 25, 20];
+    solution(progresses,speeds);
+    function solution(progresses, speeds) {
+        var answer = [];
+        let days=[];
+        for(let i=0;i<progresses.length;i++){
+            let leavePercent = Math.floor(100-progresses[i]);
+            let leaveDays = Math.floor(leavePercent/speeds[i]);
+            if(leavePercent%speeds[i]!=0)
+                leaveDays++;
+            days.push(leaveDays); //7 3 9
+        }//for end
+        let beforeNum=days[0];
+        answer.push(1);
+        // console.log(days);
+        for(let i=1;i<days.length;i++){
+            let thisNum=days[i];
+            if(beforeNum>=thisNum)
+                answer[answer.length-1]++;
+            else {
+                answer.push(1);
+                beforeNum = thisNum;
+            }//if~else end
+        }//for end
+        console.log(answer);
+        return answer;
+    }
+</script>
+</html>
