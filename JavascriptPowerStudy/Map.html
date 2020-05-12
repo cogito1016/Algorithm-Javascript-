@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    //자바스크립트 맵 사용가능
+    const map = new Map();
+    //맵에 키와 벨류쌍값 넣기
+    map.set(1,"hello");
+    map.set(2,"why?");
+
+    for(let [key,val] of map){
+        console.log(key+" "+val);
+    }//향상된 for문으로 접근가능 , 키쌍값의 배열이 넘어옵니다.
+
+    //반복자 객체를 생성하여 사용(Iterator)
+    const mapIterator = map.entries();
+
+    while ( !mapIterator.next().done ) {
+        const [key, value] = mapIterator.next().value;
+        console.log(key +' , ' +value);
+    }//while을 통해 다음 배열이 없으면 끝
+
+</script>
+</html>
