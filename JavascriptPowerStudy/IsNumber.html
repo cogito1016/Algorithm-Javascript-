@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+
+    let s = "a234";
+    let sList = s.split("");
+    let answer = false ;
+    for(let i=0;i<sList.length;i++){
+        let thisChar = parseInt(sList[i]);
+        if(isNaN(thisChar)){
+            answer=false
+            break;
+        }else{
+            answer=true;
+        }//if~else end
+    }//for end
+    console.log(answer);
+</script>
+</html>
