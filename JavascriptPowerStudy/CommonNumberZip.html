@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+
+    let arr =[1,2,3];
+    let tempArr = [];
+    let result =0;
+    while(arr.length!=1) {
+        let thisNum = arr[0];
+        let answer = 1;
+        tempArr= [];
+        result++;
+        for(let i=1;i<arr.length;i++){
+            if(thisNum==arr[i])
+                answer++;
+            else{
+                tempArr.push(answer);
+                answer=1;
+                thisNum=arr[i];
+            }//if ~ else end
+
+            if(i==arr.length-1)
+                tempArr.push(answer);
+
+        }//for end 숫자줄이기
+        arr = tempArr;
+    }//while end 1이 될때까지 반복
+    console.log(result+1) ;
+</script>
+</html>
