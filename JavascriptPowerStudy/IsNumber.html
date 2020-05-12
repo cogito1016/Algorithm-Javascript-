@@ -8,18 +8,21 @@
 </body>
 <script>
 
-    let s = "a234";
+    let s = "1231231";
     let sList = s.split("");
     let answer = false ;
-    for(let i=0;i<sList.length;i++){
-        let thisChar = parseInt(sList[i]);
-        if(isNaN(thisChar)){
-            answer=false
-            break;
-        }else{
-            answer=true;
-        }//if~else end
-    }//for end
+    let sLength = sList.length;
+    if(sLength==4||sLength==6){
+        for(let i=0;i<sLength;i++){
+            let thisChar = parseInt(sList[i]);
+            if(isNaN(thisChar)){
+                answer=false
+                break;
+            }else{
+                answer=true;
+            }//if~else end
+        }//for end
+    }
     console.log(answer);
 </script>
 </html>
