@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let arr = [112,1814,121,1481,1184];
+    let keyList = [];
+    let valList = [];
+
+    for(let i=0;i<arr.length;i++){
+        let thisElement = arr[i].toString().split("").sort();
+        let thisNum = thisElement[0];
+        let count = 1 ;
+        let key = [];
+        let val = [];
+        for(let j=1;j<thisElement.length;j++){
+            if(thisNum==thisElement[j])
+                count++;
+            else if(thisNum!=thisElement[j])
+            {
+                key.push(thisNum);
+                val.push(count);
+                thisNum=thisElement[j];
+                count=1;
+            }//if~else if
+        }//for end
+        key.push(thisNum);
+        val.push(count);//마지막 요소도 추가해줘야합니다.
+        let flag= false;
+        for(let a=0;a<keyList.length;a++){
+            let thisKeyList = keyList[a];
+            if(thisKeyList.length!=key.length){
+                flag=false;
+                continue;
+            }
+            for(let b=0;b<thisKeyList.length;b++){
+                for(let c=0;c<key.length;c++){
+                    if(key[c]==thisKeyList[b]){
+                        let thisValList = valList[a];
+                        if(val[c]==thisValList[b])
+                            flag=true;
+                        else
+                            flag=false;
+                    }else
+                        flag=false;
+                }//for end
+                if(flag)
+                    break;
+            }//for end
+            if(flag)
+                break;
+
+        }//for end
+        if(!flag){
+            keyList.push(key);
+            valList.push(val);
+        }
+    }//for end 배열에 접근하면서 키값쌍을 비교합니다.
+    console.log(keyList.length);
+</script>
+</html>
