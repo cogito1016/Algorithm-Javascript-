@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let participant = ["mislav", "stanko", "mislav", "ana"];
+    let completion =["stanko", "ana", "mislav"];
+    let map = new Map();
+
+    for(let i=0;i<participant.length;i++) {
+        let thisPerson = participant[i];
+        if (map.has(thisPerson))
+            map.set(thisPerson,map.get(thisPerson)+1);
+        else
+            map.set(thisPerson,1);
+    }
+    for(let i=0;i<completion.length;i++){
+        let thisPerson = completion[i];
+        if(map.has(thisPerson)){
+            if(map.get(thisPerson)==1)
+                map.delete(thisPerson);
+            else
+                map.set(thisPerson,map.get(thisPerson)-1);
+        }//if end
+    }//for end
+
+    for(let item of map){
+        console.log(item[0]);
+    }
+</script>
+</html>
