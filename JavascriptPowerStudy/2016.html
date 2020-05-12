@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    function retrunDay(month) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return 31;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return 30;
+            case 2:
+                return 29;
+        }
+    }//returnDay end
+
+
+    let a=1;
+    let b=1;
+    let i=1;
+    let tempDay=1;
+
+    while(i!=a){
+        let maxDay = retrunDay(i);
+
+        while(tempDay<=maxDay){
+            tempDay+=7;
+        }//while end
+
+        tempDay = tempDay-maxDay;
+        i++;
+    }//while end
+    let answer ="";
+    let result
+    if(b>=tempDay){
+    result = (b-tempDay)%7;
+    }else
+        result = (tempDay+7)%7;
+    switch (result) {
+        case 0:
+            answer+="FRI";
+            break;
+        case 1:
+            answer+="SAT";
+            break;
+        case 2:
+            answer+="SUN";
+            break;
+        case 3:
+            answer+="MON";
+            break;
+        case 4:
+            answer+="TUE";
+            break;
+        case 5:
+            answer+="WED";
+            break;
+        case 6:
+            answer+="THU";
+            break;
+    }
+    console.log(answer);
+
+</script>
+</html>
