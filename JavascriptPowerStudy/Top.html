@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    var arr =[3,9,9,3,5,7,2];
+    let answer = [];
+    let isPossible = false ;
+    for(let i=0;i<arr.length;i++){
+        let thisNum = arr[i];
+        isPossible = false;
+        for(let j=i-1;j>=0;j--){
+            if(thisNum<arr[j]){
+                isPossible=true;
+                answer.push(j+1);
+                break;
+            }//if end
+        }//for end
+        if(!isPossible)
+            answer.push(0);
+    }//for end
+    console.log(answer);
+</script>
+</html>
