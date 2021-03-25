@@ -15,14 +15,12 @@ function solution(answers) {
 
         for(let i=0; i<answers.length; i++){
             let number = answers[i];
-            console.log(`${number}와 ${way[i%way.length]}를 비교합니다`)
+
             if(number===way[i%way.length]){
                 students[key].point++;
             }
         }
     }
-
-    console.log(students)
 
     let max = -1;
     for(let key in students){
