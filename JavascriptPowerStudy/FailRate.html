@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+
+    let stages = [2, 1, 2, 6, 2, 4, 3, 3];
+    let N = 5 ;
+    let map = new Map();
+
+    for(let i=0;i<stages.length;i++){
+        if(i==0){
+            map.set(stages[0],1);
+            continue;
+        }//if end
+        let thisKey = stages[i];
+        if(thisKey>5)
+            continue;
+        if(map.has(thisKey)){
+            map.set(thisKey,map.get(thisKey)+1);
+        }else{
+            map.set(thisKey,1);
+        }//if~else end
+    }//for end
+    let answer = new Array(N);
+    for(let i=0;i<N;i++){
+        answer[i]=0;
+    }//for end
+
+    for(let item of map){
+        answer[item[0]-1]=item[1];
+    }//for end
+
+    let tempList = [];
+    let usersNum = stages.length;
+     for(let i=0;i<answer.length;i++){
+         let temp = answer[i] ;
+         answer[i] = answer[i]/usersNum;
+         tempList.push(answer[i]);
+         usersNum -=temp;
+     }//for end
+
+    answer.sort(function (a,b) {
+         if(a<=b)
+             return 1;
+         else
+             return -1;
+     })
+
+    for(let i=0;i<N;i++){
+        for(let j=0;j<N;j++){
+            if(answer[i]==tempList[j]){
+                answer[i]=j+1;
+                tempList[j]=NaN;
+                continue;
+            }
+        }
+    }//for end
+
+
+</script>
+
+</html>
